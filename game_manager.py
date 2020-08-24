@@ -68,7 +68,7 @@ def main():
                         if command.lower() == "quit" or command.lower() == "exit":
                             loop = False
                         elif command.lower() == "add":
-                            addGame(input("game data\nGame Name|Common Path|Local Path\n"))
+                            addGame(input("In one line input the data about the new game in this format (include the \"|\")\nGame Name|Common Path|Local Path\n"))
                         else:
                             print("Command not recognized")
                         command = ""
@@ -149,8 +149,6 @@ def sync():
         # time.sleep(100)
         # Compare
         for game in local:
-            # if local[game][2] == "C:\\Users\\Evgol\\AppData\\LocalLow\\Ludeon Studios\\RimWorld by Ludeon Studios\\Saves":
-
             if common[game][0] > local[game][0]:
                 writeLog("[COMMON -> LOCAL] " + game)
 
@@ -311,4 +309,5 @@ if __name__ == "__main__":
     except Exception as e:
         writeLog(e.__str__())
         raise e
+    writeLog("Program exited successfully")
     #print( time.asctime(time.localtime(readFolderModTime("D:\\tst"))))
